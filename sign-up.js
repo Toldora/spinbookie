@@ -69,6 +69,8 @@ const closeModal = (event) => {
 
   document.addEventListener("click", onClickDocument);
 
+  history.replaceState({}, "", window.location.origin);
+
   state.isOpenedModal = false;
 };
 
