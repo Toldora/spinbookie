@@ -55,6 +55,8 @@ const openModal = () => {
   signUpRef.addEventListener("click", onClickOverlay);
   closeBtnRef.addEventListener("click", closeModal);
 
+  history.replaceState({}, "", window.location.origin);
+
   state.isOpenedModal = true;
 };
 
