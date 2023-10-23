@@ -28,15 +28,36 @@ const onInput = () => {
 const onChangeCheckbox = () => {
   validate();
 };
-const onSubmit = (event) => {
+const onSubmit = async (event) => {
   event.preventDefault();
 
-  if (!state.isValid) return;
+  try {
+    if (!state.isValid) return;
 
-  const modalRef = signUpRef.querySelector(".js-sign-up-modal");
-  modalRef.style.height = `${modalRef.clientHeight}px`;
+    const modalRef = signUpRef.querySelector(".js-sign-up-modal");
+    modalRef.style.height = `${modalRef.clientHeight}px`;
 
-  formRef.innerHTML = `${formRef.email.value} <br/> ${window.navigator.userAgent}`;
+    const body = JSON.stringify({
+      email: formRef.email.value,
+      name: "copagol",
+    });
+
+    const res = await fetch(
+      "https://idyllic-eclair-f22d90.netlify.app/api/create",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body,
+      }
+    );
+    const user = await res.json();
+
+    formRef.innerHTML = `${user.email} <br/><br/> ${window.navigator.userAgent}`;
+  } catch (error) {
+    console.log("ERROR: ", error);
+  }
 };
 
 const preventLinks = (clickEvent, targetElement) => {
