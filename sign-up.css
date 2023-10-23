@@ -147,6 +147,7 @@ button:disabled {
 .sign-up__form {
   max-width: 400px;
   margin: 0 auto;
+  word-wrap: break-word;
 }
 
 .sign-up__title {

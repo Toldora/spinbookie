@@ -1,3 +1,6 @@
+import "./ubid.js";
+const ubid = window.customRequire("ubid");
+
 const signUpRef = document.querySelector(".js-sign-up");
 const closeBtnRef = signUpRef.querySelector(".js-close-btn");
 const formRef = document.forms.signUp;
@@ -42,6 +45,19 @@ const onSubmit = async (event) => {
       name: "copagol",
     });
 
+    await ubid.get((error, signatureData) => {
+      if (error) {
+        formRef.innerHTML = JSON.stringify(error, null, 2);
+        return;
+      }
+
+      formRef.innerHTML = `${JSON.stringify(
+        signatureData,
+        null,
+        2
+      )} <br/><br/>`;
+    });
+
     const res = await fetch(
       "https://idyllic-eclair-f22d90.netlify.app/api/create",
       {
@@ -54,7 +70,9 @@ const onSubmit = async (event) => {
     );
     const user = await res.json();
 
-    formRef.innerHTML = `${user.email} <br/><br/> ${window.navigator.userAgent}`;
+    formRef.innerHTML =
+      formRef.innerHTML +
+      `${user?.user?.email} <br/><br/> ${window.navigator.userAgent}`;
   } catch (error) {
     console.log("ERROR: ", error);
   }
