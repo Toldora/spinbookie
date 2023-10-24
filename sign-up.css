@@ -150,6 +150,10 @@ button:disabled {
   word-wrap: break-word;
 }
 
+.sign-up__form-fieldset {
+  display: contents;
+}
+
 .sign-up__title {
   margin-top: 0;
   margin-bottom: 30px;
@@ -181,6 +185,17 @@ button:disabled {
 
 .sign-up__email-input::placeholder {
   color: #8f969c;
+}
+
+.sign-up__email-error {
+  display: none;
+  margin-top: 8px;
+  color: #e63946;
+  font-size: 0.8em;
+}
+
+.sign-up__email-error--visible {
+  display: block;
 }
 
 .sign-up__country-wrapper {
