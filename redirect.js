@@ -1,5 +1,5 @@
 let targetLocation = "";
-if (window.screen.width >= 1024) {
+if (window.screen.width >= 810) {
   targetLocation = window.location.origin + "/desktop.html";
 } else {
   targetLocation = window.location.origin + "/mobile.html";

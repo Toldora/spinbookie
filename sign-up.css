@@ -1,5 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
 
+.sign-up__overlay p {
+  --p-font-size: 20px;
+  --p-font-weight: 700;
+  --p-line-height: 1.3;
+  --p-letter-spacing: 0;
+  --p-font-family: Ubuntu, sans-serif;
+  --p-shadow: none;
+}
+
+.sign-up__overlay h2 {
+  --h2-line-height: 1.3;
+  --h2-letter-spacing: 0;
+  --h2-font-family: Ubuntu, sans-serif;
+  --h2-shadow: none;
+}
+
+.sign-up__bonus-payments-wrapper p {
+  --p-font-size: 16px;
+}
+
+@media (min-width: 810px) {
+  .sign-up__overlay p {
+    --p-font-size: 28px;
+  }
+
+  .sign-up__bonus-payments-wrapper p {
+    --p-font-size: 28px;
+  }
+}
+
 button {
   padding: 0;
   border: none;
@@ -221,6 +251,10 @@ button:disabled {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  width: unset;
+  height: unset;
+  min-height: unset;
+  border: none;
 }
 
 .sign-up__check-box {
@@ -277,7 +311,7 @@ button:disabled {
   cursor: default;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 810px) {
   .sign-up__overlay {
     backdrop-filter: blur(4px);
   }
