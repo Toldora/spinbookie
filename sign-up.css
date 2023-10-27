@@ -128,6 +128,8 @@ button:disabled {
   bottom: 0;
   background-color: #062c14;
   background-image: url(./img/indian.png), url(./img/bonus-decor.jpg);
+  background-size: auto, cover;
+  background-repeat: no-repeat;
   filter: blur(5px);
 }
 
